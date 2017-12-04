@@ -1,8 +1,41 @@
+import os
+import csv
 import pandas as pd
 import numpy as np
 
-# Code by Brian Walsh, developed for use in CO-7th district
 
+# Code for MI-08 (BW & SH)
+
+# Load the file
+dir = '/Users/brian/Desktop/analytics_info/vf/'
+if not os.path.exists(dir):
+    dir = '' # Sam point to your directory with the files here 
+f1 = dir+'usc08.lst'
+f2 = dir+'usc_AllHis.LST'
+
+name_f, name_l, name_m, name_s = [],[],[],[]
+year_birth, year_age, date_reg = [],[],[]
+
+
+
+with open(f1) as f:
+    reader = csv.reader(f)
+    
+    for row in reader:
+        _str = str(row[0])
+        #
+        name_l.append(_str[ 0:34].replace(' ',''))# alpha, hyphens allowed
+        name_f.append(_str[35:54].replace(' ',''))# alpha only (no spaces)
+        name_m.append(_str[55:74].replace(' ',''))# alpha only (no spaces)
+        name_s.append(_str[75:77].replace(' ',''))# JR, SR, or I-V
+        #
+        year_birth.append(int(_str[78:82]))# YYYY
+        year_age.append(2018-year_birth[-1])# age on election date
+
+print(year_age[0:20])
+
+# Code developed for use in CO-7th district (BW)
+assert(False)
 myCols = ['VOTER_ID','COUNTY','REGISTRATION_DATE','EFFECTIVE_DATE','LAST_UPDATED_DATE','RESIDENTIAL_ZIP_CODE','RESIDENTIAL_CITY','VOTER_STATUS','PARTY','GENDER','BIRTH_YEAR','State Senate','State House','Congressional','MAILING_ADDRESS_1']
 
 mydtype = {'BIRTH_YEAR':np.int32,'Congressional':np.int32}
