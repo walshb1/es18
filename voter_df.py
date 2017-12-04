@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 
+# Code by Brian Walsh, developed for use in CO-7th district
+
 myCols = ['VOTER_ID','COUNTY','REGISTRATION_DATE','EFFECTIVE_DATE','LAST_UPDATED_DATE','RESIDENTIAL_ZIP_CODE','RESIDENTIAL_CITY','VOTER_STATUS','PARTY','GENDER','BIRTH_YEAR','State Senate','State House','Congressional','MAILING_ADDRESS_1']
 
 mydtype = {'BIRTH_YEAR':np.int32,'Congressional':np.int32}
