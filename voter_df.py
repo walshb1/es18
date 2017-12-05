@@ -14,7 +14,7 @@ if not os.path.exists(dir):
 
 try: 
     with open(dir+'voter_file.csv') as f:
-        print('using pro-processed file')
+        print('using pre-processed file')
 
 except:
     print('running preprocess script; turns .lst file into .csv') 
